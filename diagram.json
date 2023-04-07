@@ -1,0 +1,67 @@
+{
+    "version": 1,
+    "author": "2qx",
+    "editor": "wokwi",
+    "parts": [
+      { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": -37.58, "left": -96.37, "attrs": {} },
+      {
+        "type": "wokwi-tm1637-7segment",
+        "id": "sevseg1",
+        "top": -79.36,
+        "left": 95.8,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-neopixel-canvas",
+        "id": "neopixels",
+        "top": -412.09,
+        "left": -131.08,
+        "attrs": { "rows": "13", "cols": "15", "pixelate": "circle" }
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": -217.03,
+        "left": -254.24,
+        "attrs": { "color": "white", "gamma": "100", "lightColor": "orange", "flip": "" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "r1",
+        "top": 19.87,
+        "left": -276.84,
+        "rotate": 90,
+        "attrs": { "value": "100000000" }
+      },
+      {
+        "type": "wokwi-slide-potentiometer",
+        "id": "pot1",
+        "top": -64.8,
+        "left": -619.83,
+        "rotate": 270,
+        "attrs": { "travelLength": "100" }
+      }
+    ],
+    "connections": [
+      [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+      [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+      [ "matrix1:V+", "esp:3V3", "red", [ "h84.7", "v263.71" ] ],
+      [ "matrix1:GND", "esp:GND.1", "black", [ "h74.78", "v244.61" ] ],
+      [ "matrix1:CS", "esp:D5", "green", [ "h61.1", "v167.71" ] ],
+      [ "esp:D22", "oled1:SCL", "green", [ "h0" ] ],
+      [ "sevseg1:GND", "esp:GND.1", "black", [ "h27.18", "v98.72" ] ],
+      [ "sevseg1:VCC", "esp:3V3", "red", [ "h37.04", "v152.24" ] ],
+      [ "sevseg1:CLK", "esp:D21", "yellow", [ "h10.25", "v75.84" ] ],
+      [ "sevseg1:DIO", "esp:D19", "green", [ "h6.4", "v75.54" ] ],
+      [ "matrix1:CLK", "esp:D18", "gold", [ "h51.84", "v148.51" ] ],
+      [ "led1:C", "r1:1", "black", [ "v0" ] ],
+      [ "r1:2", "esp:GND.2", "black", [ "v64.89", "h156.12" ] ],
+      [ "led1:A", "esp:D12", "green", [ "v0" ] ],
+      [ "esp:D35", "pot1:SIG", "green", [ "h-38.98", "v-165.38" ] ],
+      [ "matrix1:DIN", "esp:D23", "green", [ "h69.71", "v88.77" ] ],
+      [ "esp:D15", "neopixels:DIN", "green", [ "h0" ] ],
+      [ "neopixels:VSS", "esp:GND.1", "black", [ "v0" ] ],
+      [ "neopixels:VDD", "esp:3V3", "red", [ "v0" ] ]
+    ],
+    "dependencies": {}
+  }
