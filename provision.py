@@ -47,7 +47,6 @@ def provision(chip_state, v, V_ULTRA_LOW, V_NOMINAL, V_MAX):
             for i in range(delta_off):
                 if len(low)>0:
                     random_index = random.choice(low)
-                    print(str(random_index))
                     chip_state[random_index] = CHIP_OFF
                     del low[low.index(random_index)]
 

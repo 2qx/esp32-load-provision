@@ -51,7 +51,7 @@ def get_voltage(pot_a, chip_state):
   # subtract a simulated voltage drop
   load = len([state for i,state in enumerate(chip_state) if state == CHIP_LOW])
   simulated_drop  = load*0.01
-  print(str(simulated_drop) + "drop")
+  print(str(simulated_drop) + " drop")
   return vin-simulated_drop
 
 while True:
